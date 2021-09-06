@@ -1,4 +1,4 @@
-### Week 1
+### Week 2
 
-Initial course info and introduction.
-Created some basic Spring Boot demo application using REST controllers and entities
+Briefly did some Spring Boot
+2 hours of create-react-app ¯\\\_(ツ)_/¯

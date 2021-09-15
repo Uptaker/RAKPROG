@@ -2,10 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.model.Item;
 import com.example.backend.service.ItemService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,12 +27,19 @@ public class ItemController {
         In Postman:
         {
             "id": 1,
-                "name": "aaa",
-                "price": 10,
-                "category": "wee"
-
+            "name": "aaa",
+            "price": 10,
+            "category": "wee"
         }
          */
         return "posted: " + item.getName();
     }
+
+    @GetMapping("items/delete/{id}")
+    public String deleteItem(@PathVariable Long id) {
+        String name = itemService.getItemById(id).getName();
+        itemService.deleteItem(itemService.getItemById(id));
+        return "deleted: " + name;
+    }
+
 }

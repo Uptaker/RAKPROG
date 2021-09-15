@@ -19,8 +19,19 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
+    // save
     public void saveItem(Item item) {
         itemRepository.save(item);
+    }
+
+    // delete
+    public void deleteItem(Item item) {
+        itemRepository.delete(item);
+    }
+
+    // get one by id
+    public Item getItemById(Long id) {
+        return itemRepository.getById(id);
     }
 
 

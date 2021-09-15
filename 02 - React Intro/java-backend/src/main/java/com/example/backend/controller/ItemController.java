@@ -38,11 +38,4 @@ public class ItemController {
          */
         return "posted: " + item.getName();
     }
-
-    // delete päring
-    // edit päring
-    // view one item
-
-    // kategooria osa
-
 }

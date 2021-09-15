@@ -1,5 +1,5 @@
 ### Week 2
 
 - Briefly did some Spring Boot
-
-- 2 hours of create-react-app ¯\\\_(ツ)_/¯
+- 1 hour of create-react-app ¯\\\_(ツ)_/¯
+-  Components and Routing

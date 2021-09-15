@@ -27,5 +27,5 @@ public class Category {
 }
 
 enum CategoryType {
-    PREMIUM, DELUXE, BASIC
+    PREMIUM, BASIC, ECONOMY
 }

@@ -1,14 +1,15 @@
-### Week 2
+### Week 4
 
 ## Progress
 
-- Briefly did some Spring Boot
-- Create-react-app
-- Components and Routing
+- GET/POST requests
+- Cross-Origin permission
+- States, effects
+- Links, more routing
 
 ## Homework
 
-- Add a Category type that has the same functionality of Item
+- GET/POST requests with Categories (same as item).
 
 ![alt text](https://i.imgur.com/6TIdWGP.png)
 

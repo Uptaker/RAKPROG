@@ -28,6 +28,9 @@ function Home() {
             <Link to="add-item">
                 <button>Add new item</button>
             </Link>
+            <Link to="/categories">
+                <button>Categories</button>
+            </Link>
             <ItemList items={loadedItems}/>
         </div>
     );

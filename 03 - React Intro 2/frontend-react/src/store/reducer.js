@@ -8,9 +8,18 @@ const postReducer = (state, action) => {
                 data: state.data.concat(action.payload)
             };
         case POST_REMOVE:
+
             return  {
-                ...state
+                ...state,
+                data: state.data.filter(post => post.id !== action.payload)
             };
+
+            //Kodutööna uue listi vastuvõtmine
+        case "POSTS_UPDATE":
+            return {
+                ...state,
+                data: action.payload
+            }
         default:
             return state
     }

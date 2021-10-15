@@ -21,3 +21,8 @@ export const loginUser = data => ({
 export const logoutUser = () => ({
     type: USER_LOGOUT
 })
+
+export const updatePosts = array => ({
+    type: "POSTS_UPDATE",
+    payload: array
+})

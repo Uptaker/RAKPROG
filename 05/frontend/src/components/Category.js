@@ -6,16 +6,16 @@ function Category(props) {
         <div className="item">
             <h3>{props.name}</h3>
             <table>
-
-                <tr>
-                    <td>
-                        <b>Category Type</b>
-                    </td>
-                    <td>
-                        {props.categoryType}
-                    </td>
-                </tr>
-        
+                <tbody>
+                    <tr>
+                        <td>
+                            <b>Category Type</b>
+                        </td>
+                        <td>
+                            {props.categoryType}
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     );

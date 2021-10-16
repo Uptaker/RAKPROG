@@ -1,9 +1,10 @@
 $primaryColor: rgb(66, 181, 235);
-$secondaryColor: rgb(234, 242, 243);
+$primaryColorLight: rgb(118, 196, 233);
+$secondaryColor: rgb(239, 248, 250);
 $tetriaryColor: rgb(211, 238, 241);
 
 .item {
-    border: 1px solid $primaryColor;
+    border: 1px solid $tetriaryColor;
     border-radius: 3px;
     box-sizing: border-box;
     padding: 10px;
@@ -12,6 +13,8 @@ $tetriaryColor: rgb(211, 238, 241);
     align-items: center;
     justify-content: center;
     text-align: center;
+    // -webkit-box-shadow: 1px 1px 5px 2px $tetriaryColor; 
+    // box-shadow: 2px 2px 4px 3px $tetriaryColor;
 
     h3 {
         color: rgb(34, 46, 49);
@@ -37,11 +40,12 @@ $tetriaryColor: rgb(211, 238, 241);
 
 table {
     width: 100%;
-    border-spacing: 0;
+    border-spacing: 0 10px;
 
 
     tr {
-        background-color: rgb(238, 246, 248);
+        background-color: $primaryColorLight;
+
         &:nth-of-type(2n) {
             background-color: $tetriaryColor;
         }
@@ -56,13 +60,9 @@ table {
             border-bottom-right-radius: 3px;
         }
     }
-}
 
-tr {
-    box-sizing: border-box;
-    padding: 5px;
-}
-
-td {
-    text-align: center;
+    td {
+        text-align: center;
+        padding: 5px;
+    }
 }

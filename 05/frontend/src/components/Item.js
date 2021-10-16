@@ -4,24 +4,25 @@ function Item(props) {
         <div className="item">
             <h3>{props.name}</h3>
             <table>
-                <tr>
-                    <td>
-                        <b>Price</b>
-                    </td>
-                    <td>
-                        {props.price}
-                    </td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>
+                            <b>Price</b>
+                        </td>
+                        <td>
+                            {props.price}
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td>
-                        <b>Category</b>
-                    </td>
-                    <td>
-                        {props.category}
-                    </td>
-                </tr>
-        
+                    <tr>
+                        <td>
+                            <b>Category</b>
+                        </td>
+                        <td>
+                            {props.category}
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     );

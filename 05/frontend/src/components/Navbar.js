@@ -1,11 +1,11 @@
-import './Navbar.css';
+import '../scss/Navbar.scss';
 import {Link} from 'react-router-dom'
 
 function Navbar() {
     return (
         <nav>
-            <Link to="/"><img className="logo" src="logo.png" alt="logo"/></Link>
-            <Link to="/cart"><img className="cart" src="shopping-cart.svg" alt="shopping cart"/></Link>
+            <Link to="/"><p className="title">WebShop</p></Link>
+            <Link to="/cart"><i className="nav-cart fa fa-shopping-cart"></i></Link>
         </nav>
     );
 }

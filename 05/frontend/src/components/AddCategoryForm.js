@@ -19,14 +19,14 @@ function AddCategoryForm(props) {
 
     return (
         <form onSubmit={formSubmitHandler}>
-            <label htmlFor="cname">Category name:</label><br/>
-            <input type="text" id="cname" name="cname" required ref={nameRef}/><br/>
-            <label htmlFor="type">Type:</label><br/>
+            <label htmlFor="cname">Category name:</label><br/><br/>
+            <input type="text" id="cname" name="cname" required ref={nameRef}/><br/><br/>
+            <label htmlFor="type">Type:</label><br/><br/>
             <select name="type" id="type" required ref={typeRef}>
                 <option value="BASIC" default>Basic</option>
                 <option value="ECONOMY">Economy</option>
                 <option value="PREMIUM">Premium</option>
-            </select><br/>
+            </select><br/><br/>
             <button>Add Item</button>
         </form>
     )

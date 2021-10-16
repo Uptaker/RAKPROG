@@ -28,7 +28,7 @@ function Categories() {
     return (
         <div>
             <Link to="add-category">
-                <button>Add Category</button>
+                <button>Add Category <i className="fa fa-plus"></i></button>
             </Link>
             <CategoryList categories={loadedCategories} />
         </div>

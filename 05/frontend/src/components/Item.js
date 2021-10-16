@@ -1,9 +1,28 @@
+
 function Item(props) {
     return (
-        <div>
-            <div className="itemName">{props.name}</div>
-            <div className="itemName">{props.price}</div>
-            <div className="itemName">{props.category}</div><br/>
+        <div className="item">
+            <h3>{props.name}</h3>
+            <table>
+                <tr>
+                    <td>
+                        <b>Price</b>
+                    </td>
+                    <td>
+                        {props.price}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <b>Category</b>
+                    </td>
+                    <td>
+                        {props.category}
+                    </td>
+                </tr>
+        
+            </table>
         </div>
     );
 }

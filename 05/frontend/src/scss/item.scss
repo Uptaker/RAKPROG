@@ -1,0 +1,68 @@
+$primaryColor: rgb(66, 181, 235);
+$secondaryColor: rgb(234, 242, 243);
+$tetriaryColor: rgb(211, 238, 241);
+
+.item {
+    border: 1px solid $primaryColor;
+    border-radius: 3px;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: $secondaryColor;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    h3 {
+        color: rgb(34, 46, 49);
+        margin: 10px 0 10px 0;
+    }
+
+    b {
+        color: rgb(34, 46, 49);
+        font-weight: bold;
+    }
+
+}
+
+.someList {
+    box-sizing: border-box;
+    display: grid;
+    margin-top: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0;
+
+
+    tr {
+        background-color: rgb(238, 246, 248);
+        &:nth-of-type(2n) {
+            background-color: $tetriaryColor;
+        }
+
+        td:first-of-type {
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        td:last-of-type {
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+    }
+}
+
+tr {
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+td {
+    text-align: center;
+}

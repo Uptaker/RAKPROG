@@ -3,7 +3,7 @@ import Category from './Category'
 
 function CategoryList(props) {
     return (
-        <div>
+        <div className="someList">
             {props.categories.map(cat => (
                 <Category key={cat.id} name={cat.name} categoryType={cat.categoryType}/>
             ))}

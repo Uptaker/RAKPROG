@@ -10,7 +10,7 @@ exports.login = async (req, res) => {
 
         if (!user) throw Error("User with this e-mail does not exist!")
 
-        const isMatch = bcrypt.compare(password, user.password)
+        const isMatch = await bcrypt.compare(password, user.password)
         if (!isMatch) throw Error("I should not say that the pass does not match kek")
 
         const userTemplate = {

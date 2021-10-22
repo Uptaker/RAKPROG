@@ -4,12 +4,15 @@ import {addPost, removePost, updatePosts} from "../store/actions"
 
 function Posts() {
     const [title, setTitle] = useState("")
+    const [author, setAuthor] = useState("");
     const [state, dispatch] = useContext(Context)
     const inputRef = useRef(null)
+    const authorRef = useRef(null)
 
     const handleSubmit = e => {
         e.preventDefault()
-        setTitle("")
+        setTitle("");
+        setAuthor("");
         addNewPost();
         if (inputRef.current) inputRef.current.focus()
     }
@@ -41,7 +44,8 @@ function Posts() {
     const addNewPost = () => {
         const newPost = {
             id: Date.now(),
-            title // same as title: title (wtf) 
+            title, // same as -> title: title
+            author
         }
 
         // Salvestame andmebaasi ja kui on edukas,
@@ -57,6 +61,7 @@ function Posts() {
             <h1>Add Post</h1>
             <form onSubmit={handleSubmit}>
                 <input ref={inputRef} type="text" value={title} onChange={e => setTitle(e.target.value)} autoFocus/>
+                <input ref={authorRef} type="text" value={author} onChange={e => setAuthor(e.target.value)} autoFocus/>
                 <button type="submit">Submit</button>
             </form>
 

@@ -1,4 +1,4 @@
-import './AddItemForm.css';
+import '../scss/AddItemForm.scss';
 import {useRef} from 'react';
 
 function AddItemForm(props) {
@@ -24,13 +24,13 @@ function AddItemForm(props) {
     }
 
     return (
-        <form onSubmit={formSubmitHandler}>
-            <label htmlFor="iname">Item name:</label><br/>
-            <input type="text" id="iname" name="iname" required ref={nameRef}/><br/>
-            <label htmlFor="price">Price:</label><br/>
-            <input type="number" id="price" name="price" required ref={priceRef}/><br/>
-            <label htmlFor="category">Category:</label><br/>
-            <input type="text" id="category" name="category" required ref={categoryRef}/><br/>
+        <form onSubmit={formSubmitHandler} className="addForm">
+            <label htmlFor="iname">Item name:</label>
+            <input type="text" id="iname" name="iname" required ref={nameRef}/>
+            <label htmlFor="price">Price:</label>
+            <input type="number" id="price" name="price" required ref={priceRef}/>
+            <label htmlFor="category">Category:</label>
+            <input type="text" id="category" name="category" required ref={categoryRef}/>
             <button>Add Item</button>
         </form>
     )

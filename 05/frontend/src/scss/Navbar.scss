@@ -1,0 +1,85 @@
+$navColor: rgb(66, 181, 235);
+$textColor: rgb(234, 242, 243);
+
+nav {
+    box-sizing: border-box;
+    background-color: $navColor;
+    height: 100px;
+    padding: 5px 5%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5%;
+
+    a {
+        font-size: 20px;
+    }
+}
+
+.div-right {
+    min-width: 10%;
+    display: flex;
+
+    justify-content: right;
+
+}
+
+.div-left {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 5%
+
+}
+
+.nav-cart {
+    color: $textColor;
+    font-size: 32px !important;
+
+    &:hover {
+        color: rgb(180, 234, 240);
+    }
+}
+
+.title {
+    font-size: 48px;
+    color: $textColor;
+    text-decoration: none;
+    &:link {
+        color: $textColor;
+        text-decoration: none;
+    }
+    &:visited {
+        color: $textColor;
+        text-decoration: none;
+    }
+    &:hover {
+        color: rgb(180, 234, 240);
+        text-decoration: none;
+    }
+}
+
+a {
+    color: $textColor;
+    text-decoration: none;
+    &:link {
+        text-decoration: none;
+    }
+    &:visited {
+        text-decoration: none;
+    }
+    &:hover {
+        text-decoration: none;
+    }
+    // &:-webkit-any-link {
+    //     text-decoration: none;
+    //     text-decoration-line: none;
+    // }
+}
+
+.cart {
+    height: 30px;
+    margin: 20px;
+}

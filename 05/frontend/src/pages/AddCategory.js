@@ -14,10 +14,10 @@ function AddCategory() {
     }
 
     return (
-        <div>
-            <h1>Add a new category</h1>
+        <>
+            <h2>Add a new category</h2>
             <AddCategoryForm onAddCategory={categorySubmitHandler}/>
-        </div>
+        </>
     )
 }
 

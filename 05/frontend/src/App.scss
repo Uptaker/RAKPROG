@@ -1,0 +1,144 @@
+$primaryColor: rgb(66, 181, 235);
+$darkTextColor: rgb(41, 60, 65);
+$textColor: rgb(234, 242, 243);
+$primaryColorLight: rgb(147, 202, 228);
+$secondaryColor: rgb(239, 248, 250);
+$tetriaryColor: rgb(211, 238, 241);
+
+p, h1, h2, h3, h4, h5, h6 {
+  color: $darkTextColor;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+button {
+  background-color: $secondaryColor;
+  border: 1px solid $primaryColor;
+  padding: 10px;
+  color: $darkTextColor;
+  margin-right: 10px;
+  border-radius: 3px;
+  font-size: 16px;
+  
+  &:hover {
+    background-color: rgb(180, 234, 240);
+    cursor: pointer;
+  }
+}
+
+hr {
+  border: none;
+  height: 0.5px;
+  color: $primaryColor;
+  background-color: $primaryColor;
+}
+
+.addForm {
+  border: 1px solid $tetriaryColor;
+  width: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: $secondaryColor;
+  border-radius: 3px;
+
+  button {
+    background-color: $primaryColor;
+    color: $textColor;
+    font-weight: bold;
+  }
+  
+
+  input, select, label {
+    width: 100%;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    width: 70%;
+    margin: auto;
+    display: block;
+    color: $darkTextColor;
+  }
+
+  input, select {
+    margin-bottom: 20px;
+    border: 1px solid $primaryColor;
+    font-size: 14px;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+
+    &:hover, &:focus {
+      outline: 3px $primaryColor auto;
+    }
+
+    &:hover {
+      background-color: $textColor;
+    }
+  }
+}

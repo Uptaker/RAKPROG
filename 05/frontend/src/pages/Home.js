@@ -26,10 +26,10 @@ function Home() {
     return (
         <div>
             <Link to="add-item">
-                <button>Add new item</button>
+                <button>Add new item <i className="fa fa-plus"></i></button> 
             </Link>
             <Link to="/categories">
-                <button>Categories</button>
+                <button>Categories <i className="fa fa-folder-open"></i></button>
             </Link>
             <ItemList items={loadedItems}/>
         </div>

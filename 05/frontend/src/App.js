@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import {Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
@@ -11,21 +11,23 @@ function App() {
   return (
       <div>
         <Navbar />
-        <Route path='/' exact>
-          <Home />
-        </Route>
-        <Route path='/cart'>
-          <Cart />
-        </Route>
-        <Route path='/add-item'>
-          <AddItem />
-        </Route>
-        <Route path='/add-category'>
-          <AddCategory />
-        </Route>
-        <Route path="/categories">
-          <Categories/>
-        </Route>
+        <div className="container">
+          <Route path='/' exact>
+            <Home />
+          </Route>
+          <Route path='/cart'>
+            <Cart />
+          </Route>
+          <Route path='/add-item'>
+            <AddItem />
+          </Route>
+          <Route path='/add-category'>
+            <AddCategory />
+          </Route>
+          <Route path="/categories">
+            <Categories/>
+          </Route>
+        </div>
       </div>
   );
 }

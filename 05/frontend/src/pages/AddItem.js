@@ -12,10 +12,10 @@ function AddItem() {
     }
 
     return (
-        <div>
-            <h1>Add a new item</h1>
+        <>
+            <h2>Add a new item</h2>
             <AddItemForm onAddItem={itemSubmitHandler}/>
-        </div>
+        </>
     );
 }
 

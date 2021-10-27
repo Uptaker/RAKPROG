@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.model.Item;
 import com.example.backend.service.ItemService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,9 +41,10 @@ public class ItemController {
          */
     }
 
-    @PostMapping("items/edit")
+    @ApiOperation("API endpoint for editing an item. Always specify an ID")
+    @PostMapping("items/edit/")
     public void editItem(@RequestBody Item item) {
-        itemService.editItem(item);
+        itemService.saveItem(item);
     }
 
     @DeleteMapping("items/delete/{id}")

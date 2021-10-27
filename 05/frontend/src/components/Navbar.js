@@ -8,8 +8,7 @@ function Navbar() {
             <nav>
                 <div className="div-left">
                     <Link to="/" className="title">WebShop</Link>
-                    <Link to="#">Link 1</Link>
-                    <Link to="#">Link 2</Link>
+                    <Link to="/admin">Admin</Link>
                 </div>
 
                 <div className="div-right">

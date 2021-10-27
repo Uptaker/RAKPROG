@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import ItemList from '../components/ItemList';
 import {useState, useEffect} from 'react';
 
-function Home() {
+function AdminHome() {
 
     const [isLoading, setIsLoading] = useState(true);
     const [loadedItems, setloadedItems] = useState([])
@@ -23,17 +23,24 @@ function Home() {
         )
     }
 
+    function makeDeleteRequest(itemId) {
+        fetch('http://localhost:8080/items/delete/' + itemId, {method: 'DELETE'}).then(res => {
+            return res.json();
+        }).then(data => {
+            setloadedItems(data);
+        });
+    }
+
     return (
         <div>
+            <h2>Admin Home</h2>
             <Link to="add-item">
                 <button>Add new item <i className="fa fa-plus"></i></button> 
             </Link>
-            <Link to="/categories">
-                <button>Categories <i className="fa fa-folder-open"></i></button>
-            </Link>
-            <ItemList isAddToCart={true} items={loadedItems}/>
+
+            <ItemList onDeleteItem={makeDeleteRequest} isAddToCart={false} items={loadedItems}/>
         </div>
     );
 }
 
-export default Home;
+export default AdminHome;

@@ -6,6 +6,9 @@ import AddItem from './pages/AddItem';
 import Navbar from './components/Navbar';
 import Categories from './pages/Categories';
 import AddCategory from './pages/AddCategory';
+import AdminHome from './pages/AdminHome';
+import SingleItem from './pages/SingleItem';
+import EditItem from './pages/EditItem';
 
 function App() {
   return (
@@ -26,6 +29,15 @@ function App() {
           </Route>
           <Route path="/categories">
             <Categories/>
+          </Route>
+          <Route path="/admin">
+            <AdminHome />
+          </Route>
+          <Route exact path="/item/:itemId">
+            <SingleItem />
+          </Route>
+          <Route exact path="/item/edit/:itemId">
+            <EditItem />
           </Route>
         </div>
       </div>

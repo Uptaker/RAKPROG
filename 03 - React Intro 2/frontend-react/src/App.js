@@ -6,7 +6,6 @@ import './scss/App.scss'
 import CustomHeader from './components/CustomHeader';
 import CustomFooter from './components/CustomFooter';
 import { Layout } from 'antd';
-import ShowPosts from './pages/ShowPosts';
 import Register from './pages/Register';
 import Login from './pages/Login';
 
@@ -25,7 +24,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={ShowMagic} />
           <Route exact path="/posts" component={Posts} />
-          <Route exact path="/posts/show" component={ShowPosts} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
         </Switch>

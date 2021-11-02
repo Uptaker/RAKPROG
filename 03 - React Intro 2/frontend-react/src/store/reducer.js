@@ -1,4 +1,4 @@
-import {POST_ADD, POST_REMOVE, USER_LOGOUT, USER_LOGIN} from "./actions"
+import {POST_ADD, POST_REMOVE, USER_LOGOUT, USER_LOGIN, POSTS_UPDATE} from "./actions"
 
 const postReducer = (state, action) => {
     switch(action.type) {
@@ -15,7 +15,7 @@ const postReducer = (state, action) => {
             };
 
             //Kodutööna uue listi vastuvõtmine
-        case "POSTS_UPDATE":
+        case POSTS_UPDATE:
             return {
                 ...state,
                 data: action.payload

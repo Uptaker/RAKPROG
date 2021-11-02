@@ -10,8 +10,7 @@ function CustomHeader() {
         <nav>
             <div className="div-left">
                 <Link to="/" className="title">RAKPROG</Link>
-                <Link to="/posts">Add Post</Link>
-                <Link to="/posts/show">View Posts</Link>
+                <Link to="/posts">Posts</Link>
             </div>
 
             <div className="div-right">

@@ -9,6 +9,7 @@ function Register({history}) {
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [warning, setWarning] = useState('')
   // const [confirmPassword, setConfirmPassword] = useState('')
 
   const onFinish = async (e) => {
@@ -56,9 +57,10 @@ function Register({history}) {
       {/* <Form.Item label="Confirm password" name="confirmpassword">
         <Input type="password" required></Input>
       </Form.Item> */}
-      <Form.Item style={{display: "flex", flexDirection: "center", justifyContent:"center" }}>
+      <Form.Item style={{display: "flex", justifyContent: "center"}}>
         <Button type="primary" htmlType="submit">Register</Button>
       </Form.Item>
+      {warning}
     </Form>
     </Layout>
   );

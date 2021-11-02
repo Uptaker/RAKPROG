@@ -39,7 +39,7 @@ function Login({history}) {
   }
 
   return (
-    <Layout className="container">
+    <Layout className="container" type="flex" justify="center" align="middle">
     <Form labelCol={{span: 8}} wrapperCol={{span: 8}} labelAlign="center" name="register" onFinish={onFinish}>
       <Form.Item label="E-mail" name="email">
         <Input placeholder="email@email.com" type="email" required></Input>
@@ -47,7 +47,7 @@ function Login({history}) {
       <Form.Item label="Password" name="password">
         <Input type="password" required></Input>
       </Form.Item>
-      <Form.Item>
+      <Form.Item style={{display: "flex", justifyContent: "center"}}>
         <Button type="primary" htmlType="submit">Log in</Button>
       </Form.Item>
     </Form>

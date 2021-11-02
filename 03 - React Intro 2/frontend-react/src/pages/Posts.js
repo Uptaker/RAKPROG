@@ -30,12 +30,8 @@ function Posts() {
             title: 'Action',
             dataIndex: '',
             key: 'x',
-            render: (text, record) => (
-                <Button
-                onClick={async (e) => { 
-                    dispatch(removePost(record._id))
-                }}
-                >
+            render: (record) => (
+                <Button onClick={async (e) => { dispatch(removePost(record._id))}}>
                 Delete
                 </Button>
             ),
@@ -44,14 +40,19 @@ function Posts() {
 
     const [state, dispatch] = useContext(Context)
     const [isLoading, setIsLoading] = useState(true);
+    const [warning, setWarning] = useState(null)
 
     const handleSubmit = e => {
-        const newPost = {
-            title: e.title,
-            text: e.text,
-            user: 'TEST AUTHOR'
+        if (!e.title || !e.text) { setWarning('The fields cannot be empty!')
+        } else {
+            const newPost = {
+                title: e.title,
+                text: e.text,
+                user: 'TEST AUTHOR'
+            }
+            addNewPost(newPost);
+            setWarning(null)
         }
-        addNewPost(newPost);
     }
 
     // kui [], siis muutub ühe korra. Kui [state], siis muutub iga kord kui state muutub
@@ -102,14 +103,15 @@ function Posts() {
             <h1>Add Post</h1>
             <Form labelCol={{span: 8}} wrapperCol={{span: 8}} labelAlign="center" name="register" onFinish={handleSubmit}>
                 <Form.Item label="Title" name="title">
-                    <Input placeholder="title here pew pew pew" type="text" required ref></Input>
+                    <Input placeholder="title here pew pew pew" type="text" ref></Input>
                 </Form.Item>
                 <Form.Item label="Text" name="text">
-                    <Input type="text" placeholder="post text here beowwww wee pew" required></Input>
+                    <Input type="text" placeholder="post text here beowwww wee pew"></Input>
                 </Form.Item>
                 <Form.Item style={{display: "flex", justifyContent: "center"}}>
                     <Button type="primary" htmlType="submit">Add Post</Button>
                 </Form.Item>
+                {warning}
             </Form>
         </Layout>
         {/* } */}

@@ -8,7 +8,8 @@ const postReducer = (state, action) => {
                 data: state.data.concat(action.payload)
             };
         case POST_REMOVE:
-            fetch('http://localhost:8081/api/post/delete' + action.payload, {
+            console.log(action.payload)
+            fetch('http://localhost:8081/api/post/delete/' + action.payload, {
                 method: 'DELETE',
             })
             return  {

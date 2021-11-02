@@ -8,10 +8,12 @@ const postReducer = (state, action) => {
                 data: state.data.concat(action.payload)
             };
         case POST_REMOVE:
-
+            fetch('http://localhost:8081/api/post/delete' + action.payload, {
+                method: 'DELETE',
+            })
             return  {
                 ...state,
-                data: state.data.filter(post => post.id !== action.payload)
+                data: state.data.filter(post => post._id !== action.payload)
             };
 
             //Kodutööna uue listi vastuvõtmine

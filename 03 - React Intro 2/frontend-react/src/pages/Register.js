@@ -1,8 +1,6 @@
 import { Form, Input, Button, Layout } from 'antd';
 import {withRouter} from 'react-router-dom'
-import {useState, useRef, useEffect} from 'react'
-
-
+import {useState} from 'react'
 function Register({history}) {
 
   const [firstName, setFirstName] = useState('');
@@ -18,25 +16,26 @@ function Register({history}) {
     setFirstName(e.firstname)
     setPassword(e.password)
     // setConfirmPassword(e.confirmpassword)
-    console.log(e);
-    const response = await fetch('http://localhost:8081/api/auth/signup/', {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email,
-        firstName,
-        lastName,
-        password
-      }),
-      method: 'POST',
-    })
+    const newUser = {
+      email,
+      firstName,
+      lastName,
+      password
+    }
 
-    const data = await response.json()
-
-    console.log(data)
-
-    // history.push("/login")
+    if (!e.email || !e.password || !e.firstname || !e.lastname) {
+      setWarning('Fields cannot be empty!')
+    } else {
+      const response = await fetch('http://localhost:8081/api/auth/signup/', {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newUser),
+        method: 'POST',
+      })
+      history.push("/login")
+      setWarning(null)
+    }
   }
 
   return (
@@ -64,7 +63,6 @@ function Register({history}) {
     </Form>
     </Layout>
   );
-
 }
 
 export default withRouter(Register)

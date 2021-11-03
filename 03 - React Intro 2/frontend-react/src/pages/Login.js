@@ -1,41 +1,39 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Form, Input, Button, Layout } from 'antd';
 import {withRouter} from 'react-router-dom'
-import {useState, useRef, useEffect} from 'react'
-
+import {useState} from 'react'
+import { Context } from '../store';
+import { loginUser } from '../store/actions';
 
 function Login({history}) {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [state, dispatch] = useContext(Context)
 
   const onFinish = async (e) => {
     setEmail(e.email)
     setPassword(e.password)
-    // setConfirmPassword(e.confirmpassword)
-    console.log(e);
+
+    const user = {
+      email,
+      password
+    }
     const response = await fetch('http://localhost:8081/api/auth/login', {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        email,
-        password
-      }),
+      body: JSON.stringify(user),
       method: 'POST',
     })
 
     const data = await response.json()
-
     if (data.token) {
-      alert('Login successful');
-      history.push("/posts/show")
+      dispatch(loginUser(data))
+      history.push("/posts")
     } else {
       console.log('couldn\'t log in')
     }
-
-    console.log(data)
-    // history.push("/posts/show")
   }
 
   return (
@@ -53,7 +51,6 @@ function Login({history}) {
     </Form>
     </Layout>
   );
-
 }
 
 export default withRouter(Login)

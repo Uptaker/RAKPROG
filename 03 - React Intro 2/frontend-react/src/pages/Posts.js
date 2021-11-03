@@ -41,6 +41,7 @@ function Posts() {
     const [state, dispatch] = useContext(Context)
     const [isLoading, setIsLoading] = useState(true);
     const [warning, setWarning] = useState(null)
+    const [form] = Form.useForm()
 
     const handleSubmit = e => {
         if (!e.title || !e.text) { setWarning('The fields cannot be empty!')
@@ -48,13 +49,16 @@ function Posts() {
             const newPost = {
                 title: e.title,
                 text: e.text,
-                user: 'TEST AUTHOR'
+                user: `${state.auth.user.firstName} ${state.auth.user.lastName}`,
+                createdAt: new Date(Date.now()).toISOString()
             }
             addNewPost(newPost);
             setWarning(null)
+            form.resetFields()
         }
+        e.title = null
+        e.text = null
     }
-
     // kui [], siis muutub ühe korra. Kui [state], siis muutub iga kord kui state muutub
     useEffect(() => {
         getPosts()
@@ -82,13 +86,12 @@ function Posts() {
             } catch (error) {
                 console.log('oh noes ' + error)
             }
-            dispatch(addPost(post))
+            dispatch(addPost(post)) // this won't display the createdAt timestamp this way
+            // getPosts() fetches timestamps but is buggy, eg sometimes only works after a second click
         } catch (error) {
             console.log('oh noessss ' + error)
         }
     }
-
-    console.log({state})
 
     if (isLoading) {
         return (
@@ -98,10 +101,10 @@ function Posts() {
 
     return (
         <div style={{textAlign: "center"}}>
-        {/* {!state.auth.token &&  */}
+        {state.auth.token && 
             <Layout className="container">
             <h1>Add Post</h1>
-            <Form labelCol={{span: 8}} wrapperCol={{span: 8}} labelAlign="center" name="register" onFinish={handleSubmit}>
+            <Form form={form} labelCol={{span: 8}} wrapperCol={{span: 8}} labelAlign="center" name="register" onFinish={handleSubmit}>
                 <Form.Item label="Title" name="title">
                     <Input placeholder="title here pew pew pew" type="text" ref></Input>
                 </Form.Item>
@@ -114,8 +117,7 @@ function Posts() {
                 {warning}
             </Form>
         </Layout>
-        {/* } */}
-
+        }
             <div className="container">
             <Table dataSource={state.posts.data} columns={columns} rowKey="_id" />
             </div>

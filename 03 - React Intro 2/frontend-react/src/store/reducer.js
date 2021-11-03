@@ -8,7 +8,6 @@ const postReducer = (state, action) => {
                 data: state.data.concat(action.payload)
             };
         case POST_REMOVE:
-            console.log(action.payload)
             fetch('http://localhost:8081/api/post/delete/' + action.payload, {
                 method: 'DELETE',
             })
@@ -34,7 +33,12 @@ const authReducer = (state, action) => {
             return {
                 ...state,
                 token: action.payload.token,
-                user: action.payload.user
+                user: {
+                    id: action.payload.id,
+                    email: action.payload.email,
+                    firstName: action.payload.firstName,
+                    lastName: action.payload.lastName
+                }
             }
         case USER_LOGOUT:
             return {

@@ -8,23 +8,23 @@ function Register({history}) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [warning, setWarning] = useState('')
-  // const [confirmPassword, setConfirmPassword] = useState('')
 
   const onFinish = async (e) => {
     setEmail(e.email)
     setLastName(e.lastname)
     setFirstName(e.firstname)
     setPassword(e.password)
-    // setConfirmPassword(e.confirmpassword)
     const newUser = {
       email,
       firstName,
       lastName,
-      password
+      password,
     }
 
-    if (!e.email || !e.password || !e.firstname || !e.lastname) {
+    if (!e.email || !e.password || !e.firstname || !e.lastname || !e.confirmpassword) {
       setWarning('Fields cannot be empty!')
+    } else if (e.password !== e.confirmpassword) {
+      setWarning('Passwords do not match!')
     } else {
       const response = await fetch('http://localhost:8081/api/auth/signup/', {
         headers: {
@@ -33,8 +33,13 @@ function Register({history}) {
         body: JSON.stringify(newUser),
         method: 'POST',
       })
+      const data = await response.json()
+      if (response.ok) {
       history.push("/login")
       setWarning(null)
+      } else {
+        setWarning(data.msg[0].param.toUpperCase() + ' ' + data.msg[0].msg)
+      }
     }
   }
 
@@ -53,9 +58,9 @@ function Register({history}) {
       <Form.Item label="Password" name="password">
         <Input type="password" required></Input>
       </Form.Item>
-      {/* <Form.Item label="Confirm password" name="confirmpassword">
+      <Form.Item label="Confirm password" name="confirmpassword">
         <Input type="password" required></Input>
-      </Form.Item> */}
+      </Form.Item>
       <Form.Item style={{display: "flex", justifyContent: "center"}}>
         <Button type="primary" htmlType="submit">Register</Button>
       </Form.Item>

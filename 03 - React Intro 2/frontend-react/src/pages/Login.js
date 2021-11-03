@@ -15,6 +15,8 @@ function Login({history}) {
     setEmail(e.email)
     setPassword(e.password)
 
+    console.log(email + ' ' + password)
+
     const user = {
       email,
       password

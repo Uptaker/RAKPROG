@@ -7,6 +7,7 @@ router.post("/login", [
     check("email")
         .isEmail()
         .normalizeEmail()
+        .escape()
         .withMessage("Must be correctly formatted e-mail"),
     check("password")
         .isLength({ min: 6 })
@@ -34,6 +35,7 @@ router.post("/signup", [
         .withMessage("Must be correctly formatted e-mail"),
     check("password")
         .isLength({ min: 6 })
+        // .isStrongPassword() will skip for now as I forgot my test account passwords already lol
         .withMessage("Must be at least 6 characters long")
 ], validationMiddleware, authController.signup)
 

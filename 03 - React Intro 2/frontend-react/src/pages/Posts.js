@@ -2,6 +2,7 @@ import {useState, useContext, useRef, useEffect} from "react"
 import {Context} from "../store"
 import {addPost, removePost, updatePosts} from "../store/actions"
 import { Form, Input, Button, Layout, Table } from 'antd';
+import {Link} from 'react-router-dom'
 
 function Posts() {
 
@@ -31,9 +32,14 @@ function Posts() {
             dataIndex: '',
             key: 'x',
             render: (record) => (
+                <div>
                 <Button onClick={async (e) => { dispatch(removePost(record._id))}}>
                 Delete
                 </Button>
+                <Link to={{pathname:"posts/edit", state:{title: record.title, id: record._id, text: record.text}}}><Button>
+                Edit
+                </Button></Link>
+                </div>
             ),
             }
     ];

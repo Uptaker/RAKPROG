@@ -8,6 +8,7 @@ import CustomFooter from './components/CustomFooter';
 import { Layout } from 'antd';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import EditPost from './pages/EditPost';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/posts" component={Posts} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/posts/edit" component={EditPost} />
         </Switch>
       </Content>
 

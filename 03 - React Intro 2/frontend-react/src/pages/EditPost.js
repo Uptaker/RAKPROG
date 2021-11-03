@@ -31,8 +31,6 @@ function EditPost({history}) {
             title: e.title,
             text: e.text,
         }
-        console.log(newPost)
-        console.log(data.state.id)
         EditPost(newPost);
         setWarning(null)
         form.resetFields()

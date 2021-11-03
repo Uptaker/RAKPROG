@@ -3,8 +3,13 @@ import {Context} from "../store"
 import {addPost, removePost, updatePosts} from "../store/actions"
 import { Form, Input, Button, Layout, Table } from 'antd';
 import {Link} from 'react-router-dom'
+import {DeleteOutlined, EditOutlined} from '@ant-design/icons'
 
 function Posts() {
+    const [state, dispatch] = useContext(Context)
+    const [isLoading, setIsLoading] = useState(true);
+    const [warning, setWarning] = useState(null)
+    const [form] = Form.useForm()
 
     const columns = [
         {
@@ -27,27 +32,25 @@ function Posts() {
             dataIndex: 'createdAt',
             key: 'createdAt',
         },
-        {
+    ];
+
+    if (state.auth.token) {
+        columns.push({
             title: 'Action',
             dataIndex: '',
             key: 'x',
             render: (record) => (
                 <div>
-                <Button onClick={async (e) => { dispatch(removePost(record._id))}}>
-                Delete
+                <Button style={{width: '90%', marginBottom: '5px', backgroundColor: '#ecada6'}} onClick={async (e) => { dispatch(removePost(record._id))}}>
+                Delete <DeleteOutlined />
                 </Button>
-                <Link to={{pathname:"posts/edit", state:{title: record.title, id: record._id, text: record.text}}}><Button>
-                Edit
+                <Link to={{pathname:"posts/edit", state:{title: record.title, id: record._id, text: record.text}}}><Button style={{width: '90%', backgroundColor: '#c4d5f0'}}>
+                Edit <EditOutlined />
                 </Button></Link>
                 </div>
             ),
-            }
-    ];
-
-    const [state, dispatch] = useContext(Context)
-    const [isLoading, setIsLoading] = useState(true);
-    const [warning, setWarning] = useState(null)
-    const [form] = Form.useForm()
+        })
+    }
 
     const handleSubmit = e => {
         if (!e.title || !e.text) { setWarning('The fields cannot be empty!')
@@ -62,8 +65,6 @@ function Posts() {
             setWarning(null)
             form.resetFields()
         }
-        e.title = null
-        e.text = null
     }
     // kui [], siis muutub ühe korra. Kui [state], siis muutub iga kord kui state muutub
     useEffect(() => {
@@ -79,21 +80,22 @@ function Posts() {
         });
     }
 
-    const addNewPost = (post) => {
+    const addNewPost = async (post) => {
         try {
             try {
-                fetch('http://localhost:8081/api/post/create', {
+                const response = await fetch('http://localhost:8081/api/post/create', {
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(post),
                 method: 'POST',
                 })
+                const data = await response.json()
+                dispatch(addPost(data))
+
             } catch (error) {
                 console.log('oh noes ' + error)
             }
-            dispatch(addPost(post)) // this won't display the createdAt timestamp this way
-            // getPosts() fetches timestamps but is buggy, eg sometimes only works after a second click
         } catch (error) {
             console.log('oh noessss ' + error)
         }
